@@ -1,14 +1,14 @@
 
 var ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
-var suits = ["club","diamond","heart","spade"];
-
+var suits = ["diamond","heart","spade","club"];
+var colors = ["red","red","black","black"];
 //make deck
 var cards = [];
 for(var k = 0; k < ranks.length; ++k)
 {
 	for(var j = 0; j < suits.length; ++j){
 		//add ranks suits
-		cardsObject = '{"rank": "' + ranks[k] + '","suit": "' + suits[j] + '" ,"cardImage": ' + '"images/all/384px-Playing_card_' + suits[j] + '_' + ranks[k] + '.svg.png' + '"}';
+		cardsObject = '{"color": "' + colors[j] + '","rank": "' + ranks[k] + '","suit": "' + suits[j] + '" ,"cardImage": ' + '"images/all/384px-Playing_card_' + suits[j] + '_' + ranks[k] + '.svg.png' + '"}';
 		cards.push(JSON.parse(cardsObject));
 	}
 }
@@ -76,12 +76,16 @@ var images = document.getElementsByTagName("img");
 var checkForMatch = function(mode){
 	if(cardsInPlayId.length == 2){
 		console.log("Cards: " + cards[cardsInPlayId[0]] + " " + cards[cardsInPlayId[1]])
-		if (cards[cardsInPlayId[0]].rank === cards[cardsInPlayId[1]].rank) {
+		if (cards[cardsInPlayId[0]].rank === cards[cardsInPlayId[1]].rank && cards[cardsInPlayId[0]].color === cards[cardsInPlayId[1]].color) {
 	      console.log("You found a match!");
 	      alert("You found a match!");
 	      matches.push(cards[cardsInPlayId[0]]);
 	      matches.push(cards[cardsInPlayId[1]]);
 	      cardsInPlayId = [];
+	      var board = document.getElementById('game-board').children;
+	      if(matches.length == board.length){
+	      	alert("You have won!!!!!");
+	      }
 	      //add would you like to play again button.
 	  	} 
   		else {
