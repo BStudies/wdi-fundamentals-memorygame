@@ -198,6 +198,11 @@ var createBoard = function(mode, pixHeight, pixWidth, numberOfCards){
 		createCard(mode, pixHeight, pixWidth, numberOfCards, i);
 	}
 	randomizeBoard();
+	//remove difficulty buttons
+	var buttons = document.getElementsByTagName("button");
+	for(var j = 0; j < buttons.length; ++j){
+		buttons[j].style.display = "none";
+	}
 }
 
 
