@@ -66,6 +66,9 @@ img{
 	margin: 40px 8px 40px 8px;
 }
 
+img:hover{
+	background: red;
+}
 
 footer{
 	text-transform: uppercase;
@@ -75,6 +78,18 @@ footer{
 	font-size: 14px;
 	letter-spacing: .08em;
 	font-weight: 500;
+}
+
+button{
+	border-radius: 20%;
+	height: 100px;
+	width: 200px;
+	margin: 20px;
+	font-size: 30px;
+}
+
+button:hover{
+	border-color: red;
 }
 
 .copyright{
@@ -99,3 +114,6 @@ footer{
 }
 
 
+.counter{
+	font-size: 30px;
+}
